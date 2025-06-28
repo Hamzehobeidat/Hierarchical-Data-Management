@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: Hierarchical Data Management
+  description: 'Hierarchical Data Management api'
+  version: '1.0'
+servers:
+  - url: http://localhost:5000
+    description: local server
+paths:
+  /api/authentication/sign-in:
+    $ref: ./paths/index.yaml#/Signin
+  /api/authentication/sign-up:
+    $ref: ./paths/index.yaml#/Signup
+  /api/organization:
+    $ref: ./paths/index.yaml#/Organization
+  /api/organizationById:
+    $ref: ./paths/index.yaml#/OrganizationById
+  /api/organization/{organizationId}/department:
+    $ref: ./paths/index.yaml#/Department
+  /api/organization/{organizationId}/department/{departmentId}:
+    $ref: ./paths/index.yaml#/DepartmentById
+
+  /api/organization/{organizationId}/department/{departmentId}/project:
+    $ref: ./paths/index.yaml#/Project
+  /api/organization/{organizationId}/department/{departmentId}/project/{projectId}:
+    $ref: ./paths/index.yaml#/ProjectById
+
+  /api/organization/{organizationId}/department/{departmentId}/project/{projectId}/task:
+    $ref: ./paths/index.yaml#/Task
+  /api/organization/{organizationId}/department/{departmentId}/project/{projectId}/task/{taskId}:
+    $ref: ./paths/index.yaml#/TaskById
+
+components:
+  schemas:
+    $ref: ./schemas/index.yaml

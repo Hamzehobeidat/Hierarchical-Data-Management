@@ -1,0 +1,163 @@
+Default:
+  post:
+    operationId: addTask
+    summary: Add new Task
+    tags:
+      - Task
+    description: Add new Task
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: organization Id
+      - name: departmentId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: department Id
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: project Id
+    requestBody:
+      description: Task details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/TaskSchema'
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Task
+              $ref: '../schemas/index.yaml#/TaskSchema'
+
+  get:
+    operationId: showTask
+    summary: Get Task list
+    tags:
+      - Task
+    description: Get Task list
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of Task
+              items:
+                $ref: '../schemas/index.yaml#/TaskResponse'
+
+ById:
+  get:
+    operationId: showTaskById
+    summary: Get Task details
+    tags:
+      - Task
+    description: Get Task details
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: department id
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        description: project id
+      - in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        description: task id
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Task details
+              $ref: '../schemas/index.yaml#/TaskResponse'
+  patch:
+    operationId: updateTask
+    summary: Update Task
+    tags:
+      - Task
+    description: Update Task
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: Organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: Department id
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        description: project id
+      - in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        description: task id
+    requestBody:
+      description: Task details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/TaskSchema'
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Task details
+              $ref: '../schemas/index.yaml#/TaskSchema'

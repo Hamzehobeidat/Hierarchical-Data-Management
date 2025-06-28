@@ -1,0 +1,31 @@
+SignInSchema:
+  type: object
+  description: signin credentials details
+  required:
+    - email
+    - password
+  properties:
+    email:
+      type: string
+      description: email
+    password:
+      type: string
+      description: password
+SignInResponse:
+  type: object
+  description: logged user details
+  required:
+    - idToken
+    - expiresIn
+  properties:
+    idToken:
+      type: string
+      description: User id token
+    expiresIn:
+      type: number
+      description: User expiresIn
+SignInBody:
+  type: object
+  description: logged user details
+  allOf:
+    - $ref: ./index.yaml#/SignInSchema

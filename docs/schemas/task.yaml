@@ -1,0 +1,52 @@
+TaskSchema:
+  type: object
+  description: task details
+  required:
+    - name
+    - employeeId
+  properties:
+    id:
+      type: number
+      description: task id
+      readOnly: true
+    name:
+      type: string
+      description: project name
+    employeeId:
+      type: number
+      description: employee Id
+    status:
+      type: string
+      description: task status
+
+TaskResponse:
+  type: object
+  description: task details
+  allOf:
+    - $ref: ./index.yaml#/TaskSchema
+    - type: object
+      properties:
+        projectId:
+          type: number
+          description: project id
+        status:
+          type: string
+          description: task status
+        user:
+          type: object
+          properties:
+            id:
+              type: number
+              description: user id
+            name:
+              type: string
+              description: user name
+            email:
+              type: string
+              description: user email
+            roleId:
+              type: number
+              description: role id
+            departmentId:
+              type: number
+              description: department id

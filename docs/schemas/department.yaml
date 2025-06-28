@@ -1,0 +1,51 @@
+DepartmentSchema:
+  type: object
+  description: department details
+  required:
+    - name
+    - managerId
+  properties:
+    id:
+      type: number
+      description: department id
+      readOnly: true
+    name:
+      type: string
+      description: department name
+    managerId:
+      type: string
+      description: manager id
+
+DepartmentResponse:
+  type: object
+  description: organization details
+  allOf:
+    - $ref: ./index.yaml#/DepartmentSchema
+    - type: object
+      properties:
+        organizationId:
+          type: number
+          description: organization id
+        manager:
+          type: object
+          properties:
+            id:
+              type: number
+              description: manager id
+            name:
+              type: string
+              description: manager name
+            email:
+              type: number
+              description: manager email
+        projects:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                description: project id
+              name:
+                type: string
+                description: project name

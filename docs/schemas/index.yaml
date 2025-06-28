@@ -1,0 +1,33 @@
+SignInSchema:
+  $ref: ./signin.yaml#/SignInSchema
+SignInBody:
+  $ref: ./signin.yaml#/SignInBody
+SignInResponse:
+  $ref: ./signin.yaml#/SignInResponse
+
+SignUpSchema:
+  $ref: ./signup.yaml#/SignUpSchema
+SignUpResponse:
+  $ref: ./signup.yaml#/SignUpResponse
+SignUpBody:
+  $ref: ./signup.yaml#/SignUpBody
+
+OrganizationSchema:
+  $ref: ./organization.yaml#/OrganizationSchema
+OrganizationResponse:
+  $ref: ./organization.yaml#/OrganizationResponse
+
+DepartmentSchema:
+  $ref: ./department.yaml#/DepartmentSchema
+DepartmentResponse:
+  $ref: ./department.yaml#/DepartmentResponse
+
+ProjectSchema:
+  $ref: ./project.yaml#/ProjectSchema
+ProjectResponse:
+  $ref: ./project.yaml#/ProjectResponse
+
+TaskSchema:
+  $ref: ./task.yaml#/TaskSchema
+TaskResponse:
+  $ref: ./task.yaml#/TaskResponse

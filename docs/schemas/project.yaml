@@ -1,0 +1,41 @@
+ProjectSchema:
+  type: object
+  description: project details
+  required:
+    - name
+  properties:
+    id:
+      type: number
+      description: project id
+      readOnly: true
+    name:
+      type: string
+      description: project name
+
+ProjectResponse:
+  type: object
+  description: project details
+  allOf:
+    - $ref: ./index.yaml#/ProjectSchema
+    - type: object
+      properties:
+        departmentId:
+          type: number
+          description: department id
+        tasks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                description: task id
+              name:
+                type: string
+                description: task name
+              status:
+                type: string
+                description: task status
+              employeeId:
+                type: number
+                description: employee id

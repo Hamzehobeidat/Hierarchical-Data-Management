@@ -1,0 +1,16 @@
+OrganizationSchema:
+  type: object
+  description: organization details
+  required:
+    - name
+  properties:
+    name:
+      type: string
+      description: organization name
+
+OrganizationResponse:
+  type: object
+  description: organization details
+  allOf:
+    - $ref: ./index.yaml#/OrganizationSchema
+    - type: object

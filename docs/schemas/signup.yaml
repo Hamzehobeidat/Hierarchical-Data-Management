@@ -1,0 +1,39 @@
+SignUpSchema:
+  type: object
+  description: signup credentials details
+  required:
+    - email
+    - password
+    - name
+    - roleId
+  properties:
+    email:
+      type: string
+      description: email
+    password:
+      type: string
+      description: password
+    name:
+      type: string
+      description: name of user
+    roleId:
+      type: string
+      description: role of use
+SignUpResponse:
+  type: object
+  description: logged user details
+  required:
+    - idToken
+    - expiresIn
+  properties:
+    idToken:
+      type: string
+      description: User id token
+    expiresIn:
+      type: number
+      description: User expiresIn
+SignUpBody:
+  type: object
+  description: crete user in database
+  allOf:
+    - $ref: ./index.yaml#/SignUpSchema

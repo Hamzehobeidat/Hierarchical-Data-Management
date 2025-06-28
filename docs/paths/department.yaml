@@ -1,0 +1,127 @@
+Default:
+  post:
+    operationId: addDepartment
+    summary: Add new Department
+    tags:
+      - Department
+    description: Add new Department
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: organization Id
+    requestBody:
+      description: Department details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/DepartmentSchema'
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Department
+              $ref: '../schemas/index.yaml#/DepartmentSchema'
+
+  get:
+    operationId: showDepartment
+    summary: Get Department list
+    tags:
+      - Department
+    description: Get Department list
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of Department
+              items:
+                $ref: '../schemas/index.yaml#/DepartmentResponse'
+
+ById:
+  get:
+    operationId: showDepartmentById
+    summary: Get Department details
+    tags:
+      - Department
+    description: Get Department details
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: department id
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Department details
+              $ref: '../schemas/index.yaml#/DepartmentResponse'
+  patch:
+    operationId: updateDepartment
+    summary: Update Department
+    tags:
+      - Department
+    description: Update Department
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: Organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: Department id
+    requestBody:
+      description: Department details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/DepartmentSchema'
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Department details
+              $ref: '../schemas/index.yaml#/DepartmentSchema'

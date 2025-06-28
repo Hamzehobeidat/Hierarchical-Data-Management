@@ -1,0 +1,145 @@
+Default:
+  post:
+    operationId: addProject
+    summary: Add new Project
+    tags:
+      - Project
+    description: Add new Project
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: organization Id
+      - name: departmentId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: department Id
+    requestBody:
+      description: Project details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/ProjectSchema'
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Project
+              $ref: '../schemas/index.yaml#/ProjectSchema'
+
+  get:
+    operationId: showProject
+    summary: Get Project list
+    tags:
+      - Project
+    description: Get Project list
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of Project
+              items:
+                $ref: '../schemas/index.yaml#/ProjectResponse'
+
+ById:
+  get:
+    operationId: showProjectById
+    summary: Get Project details
+    tags:
+      - Project
+    description: Get Project details
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: department id
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        description: project id
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Project details
+              $ref: '../schemas/index.yaml#/ProjectResponse'
+  patch:
+    operationId: updateProject
+    summary: Update Project
+    tags:
+      - Project
+    description: Update Project
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: Organization id
+      - in: path
+        name: departmentId
+        required: true
+        schema:
+          type: string
+        description: Department id
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+        description: project id
+    requestBody:
+      description: Project details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/ProjectSchema'
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Project details
+              $ref: '../schemas/index.yaml#/ProjectSchema'

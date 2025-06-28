@@ -1,0 +1,109 @@
+Default:
+  post:
+    operationId: addOrganization
+    summary: Add new Organization
+    tags:
+      - Organization
+    description: Add new Organization
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+    requestBody:
+      description: Organization details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/OrganizationSchema'
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Organization
+              $ref: '../schemas/index.yaml#/OrganizationResponse'
+
+  get:
+    operationId: showOrganization
+    summary: Get Organization list
+    tags:
+      - Organization
+    description: Get Organization list
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of Organization
+              items:
+                $ref: '../schemas/index.yaml#/OrganizationResponse'
+
+ById:
+  get:
+    operationId: showOrganizationById
+    summary: Get Organization details
+    tags:
+      - Organization
+    description: Get Organization details
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: organization id
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Organization details
+              $ref: '../schemas/index.yaml#/OrganizationResponse'
+  patch:
+    operationId: updateOrganization
+    summary: Update Organization
+    tags:
+      - Organization
+    description: Update Organization
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: access token
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+        description: Organization id
+    requestBody:
+      description: Organization details data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/OrganizationSchema'
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: Organization details
+              $ref: '../schemas/index.yaml#/OrganizationResponse'

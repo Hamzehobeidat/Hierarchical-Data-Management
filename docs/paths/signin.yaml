@@ -1,0 +1,23 @@
+post:
+  operationId: signin
+  summary: Signin
+  tags:
+    - Authentication
+  description: Signin
+  requestBody:
+    description: Signin request body
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/SignInBody
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            description: signin credentials details
+            $ref: '../schemas/index.yaml#/SignInResponse'
+    '401':
+      description: Unauthorized

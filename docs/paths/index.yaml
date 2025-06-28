@@ -1,0 +1,23 @@
+Signin:
+  $ref: ./signin.yaml
+Signup:
+  $ref: ./signup.yaml
+Organization:
+  $ref: ./organization.yaml#/Default
+OrganizationById:
+  $ref: ./organization.yaml#/ById
+
+Department:
+  $ref: ./department.yaml#/Default
+DepartmentById:
+  $ref: ./department.yaml#/ById
+
+Project:
+  $ref: ./project.yaml#/Default
+ProjectById:
+  $ref: ./project.yaml#/ById
+
+Task:
+  $ref: ./task.yaml#/Default
+TaskById:
+  $ref: ./task.yaml#/ById
