@@ -81,8 +81,7 @@ const getOrganizationById = async params => {
 
 const updateOrganization = async (params, body) => {
   const { id } = params;
-  const { name } = body;
-  const organization = await Organization.update({ name }, { where: { id }, returning: true });
+  const organization = await Organization.update({ ...body }, { where: { id }, returning: true });
   const data = organization[1][0] || (await Organization.findByPk(id));
   return data;
 };

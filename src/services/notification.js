@@ -10,9 +10,7 @@ const trackTaskUpdate = async projectId => {
       timeout: null
     };
   }
-  console.log('batchStore', batchStore);
   batchStore[projectId].count += 1;
-  console.log('batchStore', batchStore);
   clearTimeout(batchStore[projectId].timeout);
 
   batchStore[projectId].timeout = setTimeout(() => {

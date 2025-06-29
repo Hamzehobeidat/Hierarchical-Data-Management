@@ -67,8 +67,7 @@ const getDepartmentById = async params => {
 
 const updateDepartment = async (params, body) => {
   const { id } = params;
-  const { name } = body;
-  const department = await Department.update({ name }, { where: { id }, returning: true });
+  const department = await Department.update({ ...body }, { where: { id }, returning: true });
   const data = department[1][0] || (await Department.findByPk(id));
   return data;
 };

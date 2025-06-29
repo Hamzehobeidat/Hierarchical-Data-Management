@@ -43,8 +43,7 @@ const getPojectById = async params => {
 
 const updateProject = async (params, body) => {
   const { id } = params;
-  const { name } = body;
-  const project = await Project.update({ name }, { where: { id }, returning: true });
+  const project = await Project.update({ ...body }, { where: { id }, returning: true });
   const data = project[1][0] || (await Project.findByPk(id));
   return data;
 };

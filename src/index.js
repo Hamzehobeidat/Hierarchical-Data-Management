@@ -11,7 +11,6 @@ app.use(json());
 app.use('/api', router);
 
 app.use((err, req, res, next) => {
-  console.log(err.message);
   res.status(err.status || err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({
     message: err.message
   });

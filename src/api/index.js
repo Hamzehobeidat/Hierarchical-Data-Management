@@ -11,7 +11,6 @@ const dirname = path.resolve();
 
 (async function swaggerDocument() {
   const results = await multiFileSwagger(YAML.load(path.join(dirname, './docs/api.yaml')));
-  console.log(results);
   router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(results));
   return results;
 })();

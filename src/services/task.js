@@ -50,10 +50,8 @@ const getTaskById = async params => {
 
 const updateTask = async (params, body) => {
   const { id } = params;
-  const { name, employeeId, status } = body;
-  await Task.update({ name, employeeId, status }, { where: { id }, returning: true });
+  await Task.update({ ...body }, { where: { id }, returning: true });
   const task = await Task.findByPk(id);
-  console.log(task.projectId);
   notification.trackTaskUpdate(task?.projectId);
   return task;
 };

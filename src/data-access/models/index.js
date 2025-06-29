@@ -28,6 +28,6 @@ User.belongsTo(Role, { foreignKey: 'role_id' });
 Role.hasMany(User, { foreignKey: 'role_id' });
 
 Notification.belongsTo(Project, { foreignKey: 'project_id' });
-Project.belongsTo(Notification, { foreignKey: 'project_id' });
+Project.hasMany(Notification, { foreignKey: 'project_id' });
 
 export { User, Role, Department, Organization, Task, Project, Notification };
